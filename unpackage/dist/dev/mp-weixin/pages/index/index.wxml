@@ -1,1 +1,1 @@
-<view class="data-v-57280228"><view data-event-opts="{{[['tap',[['navClick',['../demo/size']]]]]}}" class="nav-item data-v-57280228" bindtap="__e">上传</view></view>
+<view class="item-wrap data-v-57280228"><button type="primary" data-event-opts="{{[['tap',[['navClick',['./size']]]]]}}" bindtap="__e" class="data-v-57280228">上传印花图</button></view>

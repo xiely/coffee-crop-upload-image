@@ -14,16 +14,16 @@ export default {
         handleCrop(e) {
             uni.uploadFile({
                 // #ifdef H5
-                url: "/gw/v1/uploadPattern",
+                url: "/gw/v1/uploadImage",
                 // #endif
                 // #ifndef H5
-                url: "http://coffee.htcbot.com/gw/v1/uploadPattern",
+                url: "http://coffee.htcbot.com/gw/v1/uploadImage",
                 // #endif
                 filePath: e.tempFilePath,
                 name: 'file',
                 header: {
                     // 这里可以添加自定义header，比如token
-                    'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MCIsInBsYXRmb3JtIjoiY29mZmVlX2FkbWluXyIsImlhdCI6MTc1MDkwNzUyMiwiZXhwIjoxNzUwOTExMTIyfQ.GbFz75YzLSkP1PI5rQH82O_uOAT4lz2ndf0Hq8TmuaI',
+                    'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MCIsInBsYXRmb3JtIjoiY29mZmVlX2FkbWluXyIsImlhdCI6MTc1MDkxNjAwOSwiZXhwIjoxNzUwOTE5NjA5fQ.EQEuH9_3aLo7AmlgPN1An5-b1UK-IJtND7BmaAXhX8k',
                 },
                 fileType: "image",
                 success: uploadFileRes => {

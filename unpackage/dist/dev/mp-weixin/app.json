@@ -1,12 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/demo/size"
+    "pages/index/size"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "图片裁剪插件示例项目",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },

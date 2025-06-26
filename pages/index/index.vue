@@ -1,7 +1,7 @@
 <template>
-	<view>
+	<view class="item-wrap">
 		 <!-- <view class="nav-item" @click="navClick('../demo/base')">基本示例</view> -->
-        <button type="default" @click="navClick('../demo/size')">上传印花图</button>
+        <button type="primary" @click="navClick('./size')">上传印花图</button>
 		<!-- <view class="nav-item" @click="navClick('../demo/circle')">圆形头像裁剪</view>
 		<view class="nav-item" @click="navClick('../demo/round')">圆角矩形</view>
 		<view class="nav-item" @click="navClick('../demo/bounce')">无回弹效果 / 不可超出边界</view>
@@ -24,6 +24,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.item-wrap {
+    width: 80%;
+    margin: 100rpx auto 0;
+}
+
 .title {
     text-align: center;
     font-weight: bold;

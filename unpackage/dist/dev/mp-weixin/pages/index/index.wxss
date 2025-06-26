@@ -24,6 +24,10 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.item-wrap.data-v-57280228 {
+  width: 80%;
+  margin: 100rpx auto 0;
+}
 .title.data-v-57280228 {
   text-align: center;
   font-weight: bold;
