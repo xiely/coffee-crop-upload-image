@@ -1,0 +1,1 @@
+<view><qf-image-cropper vue-id="3bed65f5-1" choosable="{{false}}" src="https://ask.dcloud.net.cn/uploads/avatar/001/67/43/81_avatar_max.jpg" data-event-opts="{{[['^crop',[['handleCrop']]]]}}" bind:crop="__e" bind:__l="__l"></qf-image-cropper></view>

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "展示默认图片 + 不允许从本地选择图片",
+  "enablePullDownRefresh": false,
+  "disableScroll": true,
+  "usingComponents": {
+    "qf-image-cropper": "/uni_modules/qf-image-cropper/components/qf-image-cropper/qf-image-cropper"
+  }
+}

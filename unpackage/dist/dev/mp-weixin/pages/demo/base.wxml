@@ -1,0 +1,1 @@
+<view><qf-image-cropper class="vue-ref" vue-id="2b793eb2-1" width="{{500}}" height="{{500}}" data-ref="qfImageCropper" data-event-opts="{{[['^crop',[['handleCrop']]]]}}" bind:crop="__e" bind:__l="__l"></qf-image-cropper></view>
