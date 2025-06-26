@@ -1,24 +1,24 @@
 {
-    "name": "qf-image-cropper",
-    "appid": "",
-    "description": "[qf-image-cropper]图片裁剪插件示例项目",
-    "versionName": "1.0.5",
-    "versionCode": 10005,
-    "transformPx": false,
-    "app-plus": {
-        "usingComponents": true,
-        "nvueStyleCompiler": "uni-app",
-        "compilerVersion": 3,
-        "splashscreen": {
-            "alwaysShowBeforeRender": true,
-            "waiting": true,
-            "autoclose": true,
-            "delay": 0
+    "name" : "coffee-image-cropper",
+    "appid" : "__UNI__B505263",
+    "description" : "[coffee-image-cropper]图片裁剪上传项目",
+    "versionName" : "1.0.5",
+    "versionCode" : 10005,
+    "transformPx" : false,
+    "app-plus" : {
+        "usingComponents" : true,
+        "nvueStyleCompiler" : "uni-app",
+        "compilerVersion" : 3,
+        "splashscreen" : {
+            "alwaysShowBeforeRender" : true,
+            "waiting" : true,
+            "autoclose" : true,
+            "delay" : 0
         },
-        "modules": {},
-        "distribute": {
-            "android": {
-                "permissions": [
+        "modules" : {},
+        "distribute" : {
+            "android" : {
+                "permissions" : [
                     "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
                     "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
                     "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
@@ -36,29 +36,29 @@
                     "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
                 ]
             },
-            "ios": {},
-            "sdkConfigs": {}
+            "ios" : {},
+            "sdkConfigs" : {}
         }
     },
-    "quickapp": {},
-    "mp-weixin": {
-        "appid": "wxce63e146bb36e9fb",
-        "setting": {
-            "urlCheck": false
+    "quickapp" : {},
+    "mp-weixin" : {
+        "appid" : "wxce63e146bb36e9fb",
+        "setting" : {
+            "urlCheck" : false
         },
-        "usingComponents": true
+        "usingComponents" : true
     },
-    "mp-alipay": {
-        "usingComponents": true
+    "mp-alipay" : {
+        "usingComponents" : true
     },
-    "mp-baidu": {
-        "usingComponents": true
+    "mp-baidu" : {
+        "usingComponents" : true
     },
-    "mp-toutiao": {
-        "usingComponents": true
+    "mp-toutiao" : {
+        "usingComponents" : true
     },
-    "uniStatistics": {
-        "enable": false
+    "uniStatistics" : {
+        "enable" : false
     },
-    "vueVersion": "2"
+    "vueVersion" : "2"
 }
