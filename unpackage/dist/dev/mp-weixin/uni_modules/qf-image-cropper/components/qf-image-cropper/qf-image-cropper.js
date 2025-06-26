@@ -443,8 +443,8 @@ var _default = {
         var canvansHeight = this.imgHeight;
         var size = Math.max(canvansWidth, canvansHeight);
         var scalc = 1;
-        if (size > 1365) {
-          scalc = 1365 / size;
+        if (size > 600) {
+          scalc = 600 / size;
         }
         this.canvansWidth = canvansWidth * scalc;
         this.canvansHeight = canvansHeight * scalc;

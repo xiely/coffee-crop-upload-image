@@ -313,15 +313,17 @@
 					// if(use2d && (this.imgWidth > 1365 || this.imgHeight > 1365)) {
 					// 	use2d = false;
 					// }
-					let canvansWidth = this.imgWidth;
-					let canvansHeight = this.imgHeight;
-					let size = Math.max(canvansWidth, canvansHeight)
-					let scalc = 1;
-					if(size > 1365) {
-						scalc = 1365 / size;
-					}
-					this.canvansWidth = canvansWidth * scalc;
-					this.canvansHeight = canvansHeight * scalc;
+					// let canvansWidth = this.imgWidth;
+					// let canvansHeight = this.imgHeight;
+					// let size = Math.max(canvansWidth, canvansHeight)
+					// let scalc = 1;
+					// if(size > 600) {
+					// 	scalc = 600 / size;
+					// }
+					// this.canvansWidth = canvansWidth * scalc;
+					// this.canvansHeight = canvansHeight * scalc;
+                    this.canvansWidth = this.imgWidth;
+                    this.canvansHeight = this.imgHeight;
 					this.use2d = use2d;
 					this.initArea();
 					const src = val.src || this.imgSrc;
@@ -560,11 +562,14 @@
 					canvasId,
 					x: 0,
 					y: 0,
+                    
 					width: this.canvansWidth,
 					height: this.canvansHeight,
-					destWidth: this.imgWidth, // 必要，保证生成图片宽度不受设备分辨率影响
-					destHeight: this.imgHeight, // 必要，保证生成图片高度不受设备分辨率影响
-					fileType: this.fileType, // 目标文件的类型，默认png
+					destWidth: this.canvansWidth, // 必要，保证生成图片宽度不受设备分辨率影响
+					destHeight: this.canvansHeight, // 必要，保证生成图片高度不受设备分辨率影响
+					// fileType: this.fileType, // 目标文件的类型，默认png
+                    // fileType: 'jpg',
+                    // quality:0.4,
 					success: (res) => {
 						// 生成的图片临时文件路径
 						this.handleImage(res.tempFilePath);

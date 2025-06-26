@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<qf-image-cropper :width="600" :height="600" fileType="png" @crop="handleCrop"></qf-image-cropper>
+		<qf-image-cropper :width="400" :height="400" fileType="png" @crop="handleCrop"></qf-image-cropper>
 	</view>
 </template>
 
@@ -12,6 +12,7 @@ export default {
     },
     methods: {
         handleCrop(e) {
+            console.log(e.tempFilePath, "e.tempFilePath")
             uni.uploadFile({
                 // #ifdef H5
                 url: "/gw/v1/uploadImage",
@@ -23,7 +24,7 @@ export default {
                 name: 'file',
                 header: {
                     // 这里可以添加自定义header，比如token
-                    'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MCIsInBsYXRmb3JtIjoiY29mZmVlX2FkbWluXyIsImlhdCI6MTc1MDkxNjAwOSwiZXhwIjoxNzUwOTE5NjA5fQ.EQEuH9_3aLo7AmlgPN1An5-b1UK-IJtND7BmaAXhX8k',
+                    'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MCIsInBsYXRmb3JtIjoiY29mZmVlX2FkbWluXyIsImlhdCI6MTc1MDkxNzI3OSwiZXhwIjoxNzUwOTIwODc5fQ.WSlFDcvcK4NNvHckfRQPEGS2i2gjqUt4fPxsRaejZfw',
                 },
                 fileType: "image",
                 success: uploadFileRes => {
