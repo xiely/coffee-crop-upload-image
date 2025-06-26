@@ -24,7 +24,7 @@ export default {
                 name: 'file',
                 header: {
                     // 这里可以添加自定义header，比如token
-                    'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MCIsInBsYXRmb3JtIjoiY29mZmVlX2FkbWluXyIsImlhdCI6MTc1MDkxNzI3OSwiZXhwIjoxNzUwOTIwODc5fQ.WSlFDcvcK4NNvHckfRQPEGS2i2gjqUt4fPxsRaejZfw',
+                    'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MCIsInBsYXRmb3JtIjoiY29mZmVlX2FkbWluXyIsImlhdCI6MTc1MDkyMjY4OCwiZXhwIjoxNzUwOTI2Mjg4fQ.2EIRSJeb995nBDdCCikbgx8c_IWHSnw6D5e_ze3QnvQ',
                 },
                 fileType: "image",
                 success: uploadFileRes => {
@@ -34,16 +34,19 @@ export default {
                     if (data.success) {
                         // this.url = data.data
                         // console.log(data.data);
+                        // uni.navigateTo({
+                        //     url: './index'
+                        // });
                         uni.showToast({
                             title: "上传成功",
                             icon: "none",
                         });
                     }
                     else {
-                        // uni.showToast({
-                        //     title: `${data.message}`,
-                        //     icon: "none",
-                        // });
+                        uni.showToast({
+                            title: `${data.message}`,
+                            icon: "none",
+                        });
                     }
 
                 },

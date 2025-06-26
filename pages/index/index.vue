@@ -1,13 +1,6 @@
 <template>
 	<view class="item-wrap">
-		 <!-- <view class="nav-item" @click="navClick('../demo/base')">基本示例</view> -->
         <button type="primary" @click="navClick('./size')">上传印花图</button>
-		<!-- <view class="nav-item" @click="navClick('../demo/circle')">圆形头像裁剪</view>
-		<view class="nav-item" @click="navClick('../demo/round')">圆角矩形</view>
-		<view class="nav-item" @click="navClick('../demo/bounce')">无回弹效果 / 不可超出边界</view>
-		<view class="nav-item" @click="navClick('../demo/style')">无参考线 + 无边框</view>
-		<view class="nav-item" @click="navClick('../demo/angle')">禁止拉伸裁剪框 + 禁止翻转图片</view>
-		<view class="nav-item" @click="navClick('../demo/src')">展示默认图片 + 不允许从本地选择图片</view>  -->
 	</view>
 </template>
 
