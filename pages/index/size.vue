@@ -24,7 +24,7 @@ export default {
                 name: 'file',
                 header: {
                     // 这里可以添加自定义header，比如token
-                    'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MCIsInBsYXRmb3JtIjoiY29mZmVlX2FkbWluXyIsImlhdCI6MTc1MDkyMjY4OCwiZXhwIjoxNzUwOTI2Mjg4fQ.2EIRSJeb995nBDdCCikbgx8c_IWHSnw6D5e_ze3QnvQ',
+                    'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MCIsInBsYXRmb3JtIjoiY29mZmVlX2FkbWluXyIsImlhdCI6MTc1MTAwOTY1NCwiZXhwIjoxNzUxMDEzMjU0fQ._A-LhCVksQ2JUNSR3vasmkFpbxxXbEYfxBrNbNOPUoo',
                 },
                 fileType: "image",
                 success: uploadFileRes => {

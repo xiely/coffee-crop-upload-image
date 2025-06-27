@@ -8,7 +8,7 @@
 		},  {
 			"path": "pages/index/size",
 			"style": {
-				"navigationBarTitleText": "裁剪(600x600)",
+				"navigationBarTitleText": "裁剪(400x400)",
 				"enablePullDownRefresh": false,
 				"disableScroll": true
 			}
