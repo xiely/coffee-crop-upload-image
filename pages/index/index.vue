@@ -1,16 +1,43 @@
 <template>
 	<view class="item-wrap">
         <button type="primary" @click="navClick('./size')">上传印花图</button>
+        <!-- <button @click="scanCode()" style="margin-top: 30px;">扫码</button> -->
 	</view>
 </template>
 
 <script>
 export default {
+    onLoad(query) {
+        console.log(query, "qqqqqqqqqqqqqqqq")
+    },
     methods: {
         navClick(url) {
             uni.navigateTo({
                 url
             })
+        },
+        scanCode() {
+            uni.scanCode({
+                success: (res) => {
+                    console.log('扫码结果：', res);
+                    // 扫码成功后获取的结果
+                    const scanResult = res.result;
+                    console.log('扫码内容：', scanResult);
+                    uni.showToast({
+                        title: `扫码成功：${scanResult}`,
+                        icon: 'success',
+                        duration: 2000
+                    });
+                },
+                fail: (err) => {
+                    console.error('扫码失败：', err);
+                    uni.showToast({
+                        title: '扫码失败',
+                        icon: 'none',
+                        duration: 2000
+                    });
+                }
+            });
         }
     }
 }
