@@ -9,7 +9,7 @@
             </view>
             <button type="primary" @click="submit">确定制作</button>
         </view>
-        <view class="qrcode-wrap" v-else>
+        <view v-else class="qrcode-wrap">
             <view class="qrcode-content">
                 <view class="code-title">核销码</view>
                 <uv-qrcode ref="qrcode" canvas-id="qrcode" :value="qrValue" size="300rpx" :options="options"></uv-qrcode>
@@ -22,6 +22,15 @@
 import uvQrcode from '@/uni_modules/uv-qrcode/components/uv-qrcode/uv-qrcode.vue';
 
 export default {
+    components: {
+        uvQrcode
+    },
+    watch: {
+        imgPath(newVal, oldVal) {
+            console.log('imgPath changed:', newVal);
+            // 这里可以做你需要的处理
+        }
+    },
     onLoad(query) {
         this.imgPath = decodeURIComponent(query.img || '');
         console.log(this.imgPath, "imgPath")
@@ -29,10 +38,10 @@ export default {
     data() {
         return {
             imgPath: "",
-            qrValue: "http://www.baidu.com",
+            qrValue: "https://www.baidu.com",
             showQrCode: false,
             options: {
-                useDynamicSize: false,
+                // useDynamicSize: false,
                 errorCorrectLevel: 'Q',
                 margin: 10,
                 areaColor: "#fff",
@@ -45,8 +54,7 @@ export default {
     methods: {
         submit() {
             this.showQrCode = true;
-        }
-
+        },
     }
 }
 </script>
@@ -74,6 +82,13 @@ export default {
         justify-content: center;
         align-items: center;
         min-height: 400rpx; // 可根据实际二维码高度调整
+
+        .qrcode-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
 
         .code-title {
             color: #696565;

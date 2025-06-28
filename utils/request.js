@@ -13,7 +13,7 @@ const request = config => {
   config.header = config.header || {}
   if (getToken() && !isToken) {
     // config.header['Authorization'] = 'Bearer ' + getToken()
-    config.header['Authorization'] = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MCIsInBsYXRmb3JtIjoiY29mZmVlX2FkbWluXyIsImlhdCI6MTc1MTA5NjE5NSwiZXhwIjoxNzUxMDk5Nzk1fQ.MLLQCQdBw_HPSwOjZ5IRvFortWEgv-XaNxtMo0d3RRg';
+    config.header['Authorization'] = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MCIsInBsYXRmb3JtIjoiY29mZmVlX2FkbWluXyIsImlhdCI6MTc1MTEwMjA2OCwiZXhwIjoxNzUxMTA1NjY4fQ.5N3277Vr2s6O2jjGMIxMiHNY34Sik6e7ooTY0aqBMus';
   }
   // get请求映射params参数
   if (config.params) {

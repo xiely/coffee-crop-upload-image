@@ -24,7 +24,7 @@ export default {
                 name: 'file',
                 header: {
                     // 这里可以添加自定义header，比如token
-                    'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MCIsInBsYXRmb3JtIjoiY29mZmVlX2FkbWluXyIsImlhdCI6MTc1MTA5ODQ0MCwiZXhwIjoxNzUxMTAyMDQwfQ.mLx9i2TSrlkalpydy2KKUUjwy5UsELFUii-LvRFUSlY',
+                    'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MCIsInBsYXRmb3JtIjoiY29mZmVlX2FkbWluXyIsImlhdCI6MTc1MTEwNzY0OSwiZXhwIjoxNzUxMTExMjQ5fQ.tNQa3LnfDEhhG8zavKS79G6vr5M-G7hj_PsgkDrKkLs',
                 },
                 fileType: "image",
                 success: uploadFileRes => {
@@ -55,6 +55,7 @@ export default {
                         uni.showToast({
                             title: `${data.message}`,
                             icon: "none",
+                            duration: 2000
                         });
                     }
 
