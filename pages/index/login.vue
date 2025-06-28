@@ -9,9 +9,11 @@
 </template>
 
 <script>
-import { checkCode } from '../../api'
+import { checkCode, login } from '../../api'
+import { getToken, setToken, removeToken } from '@/utils/auth'
 export default {
     onLoad(query) {
+        // this.userLogin();
     },
     data() {
         return {
@@ -77,7 +79,13 @@ export default {
                     });
                 }
             });
-        }
+        },
+        // userLogin() {
+        //     let data = { "account": "xly@qq.com", "password": "htyj-coffee", "platform": "admin" }
+        //     login(data).then(res => {
+        //         console.log(res, "RRRRRRRRRRRRRRR")
+        //     })
+        // },
     }
 }
 </script>

@@ -11,10 +11,10 @@ const request = config => {
   // 是否需要设置 token
   const isToken = (config.headers || {}).isToken === false
   config.header = config.header || {}
-//   if (getToken() && !isToken) {
+  if (getToken() && !isToken) {
     // config.header['Authorization'] = 'Bearer ' + getToken()
     config.header['Authorization'] = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MCIsInBsYXRmb3JtIjoiY29mZmVlX2FkbWluXyIsImlhdCI6MTc1MTA5NjE5NSwiZXhwIjoxNzUxMDk5Nzk1fQ.MLLQCQdBw_HPSwOjZ5IRvFortWEgv-XaNxtMo0d3RRg';
-//   }
+  }
   // get请求映射params参数
   if (config.params) {
     let url = config.url + '?' + tansParams(config.params)

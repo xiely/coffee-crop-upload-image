@@ -24,7 +24,7 @@ export default {
                 name: 'file',
                 header: {
                     // 这里可以添加自定义header，比如token
-                    'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MCIsInBsYXRmb3JtIjoiY29mZmVlX2FkbWluXyIsImlhdCI6MTc1MTA5NjE5NSwiZXhwIjoxNzUxMDk5Nzk1fQ.MLLQCQdBw_HPSwOjZ5IRvFortWEgv-XaNxtMo0d3RRg',
+                    'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MCIsInBsYXRmb3JtIjoiY29mZmVlX2FkbWluXyIsImlhdCI6MTc1MTA5ODQ0MCwiZXhwIjoxNzUxMTAyMDQwfQ.mLx9i2TSrlkalpydy2KKUUjwy5UsELFUii-LvRFUSlY',
                 },
                 fileType: "image",
                 success: uploadFileRes => {
@@ -33,7 +33,7 @@ export default {
                     let data = JSON.parse(uploadFileRes.data)
                     console.log(data.success, "DDDDDDDDDD")
                     if (data.success) {
-                        // this.url = data.data
+                        this.url = data.data
                         // console.log(data.data);
                         // uni.navigateTo({
                         //     url: './index'
@@ -43,10 +43,13 @@ export default {
                             icon: "none",
                             duration: 4000
                         });
-                        uni.previewImage({
-                            urls: [e.tempFilePath],
-                            current: 0
-                        });
+                        uni.navigateTo({
+                            url: '/pages/index/confirm?img=' + encodeURIComponent(this.url)
+                        })
+                        // uni.previewImage({
+                        //     urls: [e.tempFilePath],
+                        //     current: 0
+                        // });
                     }
                     else {
                         uni.showToast({

@@ -1,5 +1,17 @@
 import request from '@/utils/request'
 
+export function login(data) {
+    return request({
+        url: '/gw/v1/user/login/login',
+        method:'post',
+        headers: {
+            isToken: false
+        },
+        data:{
+            data: data
+        }
+    })
+}
 export function checkCode(data) {
     return request({
       url: '/gw/v1/uploadImage',

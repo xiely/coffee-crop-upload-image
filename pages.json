@@ -19,6 +19,15 @@
 				"disableScroll": true
 			}
 
+		},
+        {
+			"path": "pages/index/confirm",
+			"style": {
+				"navigationBarTitleText": "确认制作",
+				"enablePullDownRefresh": false,
+				"disableScroll": true
+			}
+
 		}
 	],
 	"globalStyle": {
