@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { getToken, removeToken } from '@/utils/auth';
 import QfImageCropper from '@/uni_modules/qf-image-cropper/components/qf-image-cropper/qf-image-cropper.vue';
 export default {
     components: {
@@ -12,7 +13,6 @@ export default {
     },
     methods: {
         handleCrop(e) {
-            console.log(e.tempFilePath, "e.tempFilePath")
             uni.uploadFile({
                 // #ifdef H5
                 url: "/gw/v1/uploadImage",
@@ -24,7 +24,7 @@ export default {
                 name: 'file',
                 header: {
                     // 这里可以添加自定义header，比如token
-                    'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MCIsInBsYXRmb3JtIjoiY29mZmVlX2FkbWluXyIsImlhdCI6MTc1MTEwNzY0OSwiZXhwIjoxNzUxMTExMjQ5fQ.tNQa3LnfDEhhG8zavKS79G6vr5M-G7hj_PsgkDrKkLs',
+                    'Authorization': getToken(),
                 },
                 fileType: "image",
                 success: uploadFileRes => {
@@ -46,10 +46,6 @@ export default {
                         uni.navigateTo({
                             url: '/pages/index/confirm?img=' + encodeURIComponent(this.url)
                         })
-                        // uni.previewImage({
-                        //     urls: [e.tempFilePath],
-                        //     current: 0
-                        // });
                     }
                     else {
                         uni.showToast({

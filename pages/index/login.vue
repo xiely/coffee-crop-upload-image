@@ -80,12 +80,15 @@ export default {
                 }
             });
         },
-        // userLogin() {
-        //     let data = { "account": "xly@qq.com", "password": "htyj-coffee", "platform": "admin" }
-        //     login(data).then(res => {
-        //         console.log(res, "RRRRRRRRRRRRRRR")
-        //     })
-        // },
+        userLogin() {
+            let data = { "account": "xly33@qq.com", "password": "htyj-coffee", "platform": "admin" }
+            login(data).then(res => {
+                setToken(res.data);
+            })
+        },
+    },
+    created() {
+        this.userLogin();
     }
 }
 </script>

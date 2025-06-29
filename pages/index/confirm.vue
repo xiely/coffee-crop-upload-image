@@ -33,7 +33,6 @@ export default {
     },
     onLoad(query) {
         this.imgPath = decodeURIComponent(query.img || '');
-        console.log(this.imgPath, "imgPath")
     },
     data() {
         return {

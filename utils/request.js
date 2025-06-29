@@ -13,7 +13,7 @@ const request = config => {
   config.header = config.header || {}
   if (getToken() && !isToken) {
     // config.header['Authorization'] = 'Bearer ' + getToken()
-    config.header['Authorization'] = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MCIsInBsYXRmb3JtIjoiY29mZmVlX2FkbWluXyIsImlhdCI6MTc1MTEwMjA2OCwiZXhwIjoxNzUxMTA1NjY4fQ.5N3277Vr2s6O2jjGMIxMiHNY34Sik6e7ooTY0aqBMus';
+    config.header['Authorization'] = getToken();
   }
   // get请求映射params参数
   if (config.params) {
@@ -37,7 +37,9 @@ const request = config => {
           reject('后端接口连接异常')
           return
         }
+        console.log(res.data, "DDDDDDDDDDDDDDDDDDDDDD")
         const code = res.data.code || 200
+        console.log(code, "CCCCCCCCCCCCCC")
         const msg = errorCode[code] || res.data.msg || res.data.message || errorCode['default']
         if (res.data == "404 page not found") {
             reject('404 page not found')
@@ -56,7 +58,7 @@ const request = config => {
         } else if (code === 500) {
         //   toast(msg)
           reject('500')
-        } else if (code !== 200) {
+        } else if (code !== 200 && code !== "SUCCESS") {
           toast(msg)
           reject(code)
         }
