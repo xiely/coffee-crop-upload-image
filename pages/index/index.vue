@@ -46,7 +46,7 @@ export default {
 <style lang="scss" scoped>
 .item-wrap {
     width: 80%;
-    margin: 100rpx auto 0;
+    margin: 50% auto 0;
 }
 
 .title {

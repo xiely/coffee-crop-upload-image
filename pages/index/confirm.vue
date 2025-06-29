@@ -62,6 +62,11 @@ export default {
     width: 80%;
     margin: 0 auto;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
 
     .img-wrap {
         width: 100%;

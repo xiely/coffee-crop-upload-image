@@ -3,18 +3,18 @@
     {
 			"path": "pages/index/login",
 			"style": {
-				"navigationBarTitleText": "制作码"
+				// "navigationBarTitleText": "制作码"
 			}
 		},
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "上传"
+				// "navigationBarTitleText": "上传"
 			}
 		},  {
 			"path": "pages/index/size",
 			"style": {
-				"navigationBarTitleText": "裁剪(400x400)",
+				// "navigationBarTitleText": "裁剪(400x400)",
 				"enablePullDownRefresh": false,
 				"disableScroll": true
 			}
@@ -23,7 +23,7 @@
          {
 			"path": "pages/index/confirm",
 			"style": {
-				"navigationBarTitleText": "确认制作",
+				// "navigationBarTitleText": "确认制作",
 				"enablePullDownRefresh": false,
 				"disableScroll": true
 			}
