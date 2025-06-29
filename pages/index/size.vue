@@ -13,6 +13,14 @@ export default {
     },
     methods: {
         handleCrop(e) {
+            if (!e.tempFilePath) {
+                uni.showToast({
+                    title: "未获取到图片路径",
+                    icon: "none",
+                    duration: 2000
+                });
+                return;
+            }
             uni.uploadFile({
                 // #ifdef H5
                 url: "/gw/v1/uploadImage",
@@ -27,38 +35,53 @@ export default {
                     'Authorization': getToken(),
                 },
                 fileType: "image",
-                success: uploadFileRes => {
-                    // this.url = XXX;(后端传回来的图片地址)
-                    console.log(uploadFileRes.data, "DDDDDDDDDDDDDDDD")
-                    let data = JSON.parse(uploadFileRes.data)
-                    console.log(data.success, "DDDDDDDDDD")
-                    if (data.success) {
-                        this.url = data.data
-                        // console.log(data.data);
-                        // uni.navigateTo({
-                        //     url: './index'
-                        // });
+                success: (uploadFileRes) => {
+                    let data;
+                    try {
+                        data = JSON.parse(uploadFileRes.data);
+                    } catch (err) {
                         uni.showToast({
-                            title: "上传成功",
+                            title: "返回数据格式错误",
                             icon: "none",
                             duration: 4000
                         });
-                        uni.navigateTo({
-                            url: '/pages/index/confirm?img=' + encodeURIComponent(this.url)
-                        })
+                        return;
                     }
-                    else {
+                    if (data.success) {
+                    // this.url = data.data;
                         uni.showToast({
-                            title: `${data.message}`,
+                            title: "上传成功",
                             icon: "none",
-                            duration: 2000
+                            duration: 8000
+                        });
+                        // uni.navigateTo({
+                        //     url: '/pages/index/confirm?img=' + encodeURIComponent(this.url)
+                        // });
+                    } else {
+                        const message = data.message || "上传失败";
+                        uni.showToast({
+                            title: message,
+                            icon: "none",
+                            duration: 4000
                         });
                     }
 
                 },
                 fail: (error) => {
+                    uni.showToast({
+                        title: "上传失败",
+                        icon: "none",
+                        duration: 4000
+                    });
                     uni.hideLoading();
                     console.error('error', error);
+                },
+                complete: (aaaa)=> {
+                    // uni.showToast({
+                    //     title: "complete",
+                    //     icon: "none",
+                    //     duration: 4000
+                    // });
                 }
             });
 

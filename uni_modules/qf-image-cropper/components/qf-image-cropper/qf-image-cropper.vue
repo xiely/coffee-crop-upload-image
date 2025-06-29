@@ -241,7 +241,7 @@
 				/** 未被缩放过的图片高 */
 				oldHeight: 0,
 				/** 系统信息 */
-				sys: uni.getSystemInfoSync(),
+				sys: uni.getWindowInfo(),
 				scaleWidth: 0,
 				scaleHeight: 0,
 				rotate: 0,
@@ -598,7 +598,7 @@
 					.exec((res) => {
 						const canvas = res[0].node;
 										
-						const dpr = uni.getSystemInfoSync().pixelRatio;
+						const dpr = uni.getWindowInfo().pixelRatio;
 						canvas.width = res[0].width * dpr;
 						canvas.height = res[0].height * dpr;
 						const ctx = canvas.getContext('2d');
