@@ -46,7 +46,12 @@ export default {
 <style lang="scss" scoped>
 .item-wrap {
     width: 80%;
-    margin: 50% auto 0;
+    min-height: 80vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .title {

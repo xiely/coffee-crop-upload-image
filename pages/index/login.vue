@@ -4,7 +4,7 @@
         <view class="input-wrap">
              <uni-easyinput v-model="code"  placeholder="例如： 9523" :styles="styles"></uni-easyinput>
         </view>
-        <button v-if="code !== '' && code !== undefined" type="primary" @click="submit">确定</button>
+        <button v-if="code !== '' && code !== undefined" type="primary" @click="submit" class="btn">确定</button>
 	</view>
 </template>
 
@@ -88,7 +88,7 @@ export default {
         },
     },
     created() {
-        this.userLogin();
+        // this.userLogin();
     }
 }
 </script>
@@ -96,13 +96,21 @@ export default {
 <style lang="scss" scoped>
 .item-wrap {
     width: 80%;
-    margin: 50% auto 0;
     min-height: 80vh;
-    
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 
     .input-wrap {
         margin: 30rpx 0;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
     }
 }
 </style>

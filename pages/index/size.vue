@@ -23,17 +23,17 @@ export default {
             }
             uni.uploadFile({
                 // #ifdef H5
-                url: "/gw/v1/uploadImage",
+                url: "/gw/v1/uploadPattern",
                 // #endif
                 // #ifndef H5
-                url: "https://coffee.htcbot.com/gw/v1/uploadImage",
+                url: "https://coffee.htcbot.com/gw/v1/uploadPattern",
                 // #endif
                 filePath: e.tempFilePath,
                 name: 'file',
-                header: {
-                    // 这里可以添加自定义header，比如token
-                    'Authorization': getToken(),
-                },
+                // header: {
+                //     // 这里可以添加自定义header，比如token
+                //     'Authorization': getToken(),
+                // },
                 fileType: "image",
                 success: (uploadFileRes) => {
                     let data;
@@ -48,15 +48,15 @@ export default {
                         return;
                     }
                     if (data.success) {
-                    // this.url = data.data;
+                        this.url = data.data;
                         uni.showToast({
                             title: "上传成功",
                             icon: "none",
                             duration: 8000
                         });
-                        // uni.navigateTo({
-                        //     url: '/pages/index/confirm?img=' + encodeURIComponent(this.url)
-                        // });
+                        uni.navigateTo({
+                            url: '/pages/index/confirm?img=' + encodeURIComponent(this.url)
+                        });
                     } else {
                         const message = data.message || "上传失败";
                         uni.showToast({
@@ -76,7 +76,7 @@ export default {
                     uni.hideLoading();
                     console.error('error', error);
                 },
-                complete: (aaaa)=> {
+                complete: (aaaa) => {
                     // uni.showToast({
                     //     title: "complete",
                     //     icon: "none",
