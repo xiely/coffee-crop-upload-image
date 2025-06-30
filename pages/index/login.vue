@@ -47,6 +47,12 @@ export default {
                         url: '/pages/index/index'
                     })
                 }
+                else {
+                    uni.showToast({
+                        title: '制作码有误',
+                        icon: "none",
+                    });
+                }
 
             }).catch((err) => {
                 console.log(err, "Er")
