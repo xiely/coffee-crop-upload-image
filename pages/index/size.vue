@@ -48,7 +48,7 @@ export default {
                         return;
                     }
                     if (data.success) {
-                        this.url = data.data;
+                        this.url = (data.data || '').replace(/^http:/, 'https:');
                         uni.showToast({
                             title: "上传成功",
                             icon: "none",
