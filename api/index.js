@@ -19,33 +19,28 @@ export function checkCode(data) {
       data: data
     })
   }
-export function uploadFile(data) {
-    return request({
-      url: '/api/ota/software',
-      method: 'post',
-      data: data
-    })
-  }
 
-  export function putFile(data) {
+  export function random(data) {
     return request({
-      url: '/api/ota/software',
-      method: 'put',
-      data: data
-    })
-  }
-
-  export function fileList(data) {
-    return request({
-      url: '/api/ota/software',
+      url: '/gwop/refreshToken',
       method: 'get',
       data: data
     })
   }
 
-export function deleteFile(id) {
+ export function orderId(data) {
     return request({
-      url: `/api/ota/software/${id}`,
-      method: 'delete'
+      url: '/gwop/order/orderMakeToken',
+      method: 'get',
+      data: data
     })
   }
+export function flowerSet(data) {
+    return request({
+      url: '/gwop/order/flowerSet',
+      method: 'post',
+      data: data
+    })
+  }
+
+

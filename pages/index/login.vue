@@ -1,29 +1,39 @@
 <template>
 	<view class="item-wrap">
-        <view>请输入您的制作码</view>
+        <!-- <view>请输入您的制作码</view>
         <view class="input-wrap">
              <uni-easyinput v-model="code"  placeholder="例如： 9523" :styles="styles"></uni-easyinput>
         </view>
-        <button v-if="code !== '' && code !== undefined" type="primary" @click="submit" class="btn">确定</button>
+        <button v-if="code !== '' && code !== undefined" type="primary" @click="submit" class="btn">确定</button> -->
+        <button type="primary" @click="navClick('./size')">上传印花图</button>
 	</view>
 </template>
 
 <script>
-import { checkCode, login } from '../../api'
+import { checkCode, random, orderId } from '../../api'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 export default {
     onLoad(query) {
-        // this.userLogin();
+        this.token = decodeURIComponent(query.token || '');
+        this.token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwicGxhdGZvcm0iOiJjb2ZmZWVfYWRtaW5fIiwiaWF0IjoxNzUxMzY3MzQxLCJleHAiOjE3NTEzNzA5NDF9.SrSupBWciimAL89fp1O9hHijnlxFrVYRfROYQ3Fm7NA"
     },
     data() {
         return {
             code: "",
+            randomId: "",
+            token: "",
+            orderSubId: "",
             styles: {
                 borderRadios: '20px'
-            }
+            },
         }
     },
     methods: {
+        navClick(url) {
+            uni.navigateTo({
+                url
+            })
+        },
         submit() {
             if (this.code == undefined || this.code == '' || this.code == null) {
                 uni.showToast({
@@ -86,15 +96,41 @@ export default {
                 }
             });
         },
-        userLogin() {
-            let data = { "account": "xly33@qq.com", "password": "htyj-coffee", "platform": "admin" }
-            login(data).then(res => {
-                setToken(res.data);
-            })
+        async getRandom() {
+            let data = {
+                accessId: "OPEN"
+            }
+            try {
+                const res = await random(data);
+                this.randomId = res.data;
+                console.log(res, "RRRRRRRRR")
+                uni.setStorageSync("random", res.data)
+            } catch (err) {
+                console.error('getRandom error', err);
+            }
         },
+        async getOrderId() {
+            let data = {
+                snToken: this.token,
+                randomId: this.randomId
+            }
+            try {
+                const res = await orderId(data);
+                this.orderSubId = res.orderSubId;
+                getApp().globalData.randomId = this.randomId || "aa";
+                getApp().globalData.token = this.token || "BB";
+                getApp().globalData.orderSubId = this.orderSubId || "CC";
+            } catch (err) {
+                console.error('getOrderId error', err);
+            }
+            getApp().globalData.randomId = this.randomId || "aa";
+            getApp().globalData.token = this.token || "BB";
+            getApp().globalData.orderSubId = this.orderSubId || "CC";
+        }
     },
-    created() {
-        // this.userLogin();
+    async created() {
+        await this.getRandom();
+        await this.getOrderId();
     }
 }
 </script>

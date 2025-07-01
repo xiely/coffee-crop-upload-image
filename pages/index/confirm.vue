@@ -20,6 +20,7 @@
 </template>
 <script>
 import uvQrcode from '@/uni_modules/uv-qrcode/components/uv-qrcode/uv-qrcode.vue';
+import { flowerSet } from '../../api'
 
 export default {
     components: {
@@ -52,6 +53,15 @@ export default {
     },
     methods: {
         submit() {
+            let data = {
+                snToken: getApp().globalData.token,
+                randomId: getApp().globalData.randomId,
+                orderSubId: getApp().globalData.orderSubId,
+            }
+            flowerSet(data).then(res => {
+                console.log(res, "RRRRRRRRR")
+            })
+            console.log(aa, "AAAAAAAAAAAAAAAAAAAAAA")
             this.showQrCode = true;
         },
     }
