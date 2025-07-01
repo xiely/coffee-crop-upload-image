@@ -48,7 +48,12 @@ export default {
                         return;
                     }
                     if (data.success) {
-                        this.url = (data.data || '').replace(/^http:/, 'https:');
+                        if (!/^https?:\/\//.test(data.data)) {
+                            this.url = "https://coffee.htcbot.com/" + data.data;
+                        }
+                        else {
+                            this.url = data.data;
+                        }
                         uni.showToast({
                             title: "上传成功",
                             icon: "none",
