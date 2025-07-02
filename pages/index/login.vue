@@ -6,6 +6,7 @@
         </view>
         <button v-if="code !== '' && code !== undefined" type="primary" @click="submit" class="btn">确定</button> -->
         <button type="primary" @click="navClick('./size')">上传印花图</button>
+        <!-- <button type="primary" @click="scanCode">扫码</button> -->
 	</view>
 </template>
 
@@ -14,8 +15,9 @@ import { checkCode, random, orderId } from '../../api'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 export default {
     onLoad(query) {
-        this.token = decodeURIComponent(query.token || '');
-        this.token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwicGxhdGZvcm0iOiJjb2ZmZWVfYWRtaW5fIiwiaWF0IjoxNzUxMzY3MzQxLCJleHAiOjE3NTEzNzA5NDF9.SrSupBWciimAL89fp1O9hHijnlxFrVYRfROYQ3Fm7NA"
+        this.token = decodeURIComponent(query.scene);
+        console.log(this.token, "TTTTTTTTTTTTTTTTT")
+        // this.token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwicGxhdGZvcm0iOiJjb2ZmZWVfYWRtaW5fIiwiaWF0IjoxNzUxMzY3MzQxLCJleHAiOjE3NTEzNzA5NDF9.SrSupBWciimAL89fp1O9hHijnlxFrVYRfROYQ3Fm7NA"
     },
     data() {
         return {
