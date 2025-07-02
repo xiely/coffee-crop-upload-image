@@ -61,7 +61,6 @@ export default {
             flowerSet(data).then(res => {
                 console.log(res, "RRRRRRRRR")
             })
-            console.log(aa, "AAAAAAAAAAAAAAAAAAAAAA")
             this.showQrCode = true;
         },
     }
