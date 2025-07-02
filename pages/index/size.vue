@@ -59,7 +59,7 @@ export default {
                             icon: "none",
                             duration: 8000
                         });
-                        uni.navigateTo({
+                        uni.redirectTo({
                             url: '/pages/index/confirm?img=' + encodeURIComponent(this.url)
                         });
                     } else {
