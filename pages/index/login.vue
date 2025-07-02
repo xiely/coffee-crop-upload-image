@@ -116,21 +116,22 @@ export default {
             }
             try {
                 const res = await orderId(data);
-                this.orderSubId = res.orderSubId;
+                this.orderSubId = res.data.orderSubId;
+
                 getApp().globalData.randomId = this.randomId || "aa";
                 getApp().globalData.token = this.token || "BB";
                 getApp().globalData.orderSubId = this.orderSubId || "CC";
+                console.log(this.orderSubId, "orderSubId")
             } catch (err) {
                 console.error('getOrderId error', err);
             }
-            getApp().globalData.randomId = this.randomId || "aa";
-            getApp().globalData.token = this.token || "BB";
-            getApp().globalData.orderSubId = this.orderSubId || "CC";
         }
     },
     async created() {
+        uni.showLoading({ title: '获取数据中...', mask: true });
         await this.getRandom();
         await this.getOrderId();
+        uni.hideLoading();
     }
 }
 </script>

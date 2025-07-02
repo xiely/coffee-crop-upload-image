@@ -28,8 +28,7 @@ export default {
     },
     watch: {
         imgPath(newVal, oldVal) {
-            console.log('imgPath changed:', newVal);
-            // 这里可以做你需要的处理
+            // console.log('imgPath changed:', newVal);
         }
     },
     onLoad(query) {
@@ -60,7 +59,9 @@ export default {
             }
             flowerSet(data).then(res => {
                 console.log(res, "RRRRRRRRR")
+                this.qrValue = getApp().globalData.orderSubId
             })
+            this.qrValue = getApp().globalData.orderSubId;
             this.showQrCode = true;
         },
     }
