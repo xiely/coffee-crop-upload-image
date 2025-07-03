@@ -37,7 +37,7 @@ export default {
     data() {
         return {
             imgPath: "",
-            qrValue: "https://www.baidu.com",
+            qrValue: "",
             showQrCode: false,
             options: {
                 // useDynamicSize: false,
@@ -58,6 +58,7 @@ export default {
                 orderSubId: getApp().globalData.orderSubId,
             }
             flowerSet(data).then(res => {
+                console.log(data, "data")
                 console.log(res, "RRRRRRRRR")
                 this.qrValue = getApp().globalData.orderSubId
             })

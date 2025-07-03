@@ -71,11 +71,6 @@ export default {
                 console.log(err, "Er")
             })
         },
-        navClick(url) {
-            uni.navigateTo({
-                url: '/pages/index/index'
-            })
-        },
         scanCode() {
             uni.scanCode({
                 success: (res) => {
