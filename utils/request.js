@@ -60,7 +60,7 @@ const request = config => {
           reject('500')
         } else if (code !== "SUCCESS") {
           toast(msg)
-          reject(code)
+          reject(code.message || msg || code)
         }
         resolve(res.data)
       })

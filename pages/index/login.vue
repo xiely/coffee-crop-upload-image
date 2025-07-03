@@ -16,6 +16,9 @@ import { getToken, setToken, removeToken } from '@/utils/auth'
 export default {
     onLoad(query) {
         this.token = decodeURIComponent(query.scene);
+        if (!this.token) {
+            this.$forceUpdate();
+        }
         console.log(query, "query")
         console.log(this.token, "token")
         // this.token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwicGxhdGZvcm0iOiJjb2ZmZWVfYWRtaW5fIiwiaWF0IjoxNzUxMzY3MzQxLCJleHAiOjE3NTEzNzA5NDF9.SrSupBWciimAL89fp1O9hHijnlxFrVYRfROYQ3Fm7NA"
@@ -109,7 +112,7 @@ export default {
             } catch (err) {
                 this.getFailed = true;
                 uni.showToast({
-                    title: '获取数据失败',
+                    title: err,
                     icon: 'none',
                     duration: 2000
                 });
@@ -133,7 +136,7 @@ export default {
                 console.error('getOrderId error', err);
                 this.getOrderFailed = true;
                 uni.showToast({
-                    title: '获取订单数据失败',
+                    title: err,
                     icon: 'none',
                     duration: 2000
                 });
