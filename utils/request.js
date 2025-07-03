@@ -37,9 +37,9 @@ const request = config => {
           reject('后端接口连接异常')
           return
         }
-        console.log(res.data, "DDDDDDDDDDDDDDDDDDDDDD")
+        // console.log(res.data, "DDDDDDDDDDDDDDDDDDDDDD")
         const code = res.data.code || 200
-        console.log(code, "CCCCCCCCCCCCCC")
+        // console.log(code, "CCCCCCCCCCCCCC")
         const msg = errorCode[code] || res.data.msg || res.data.message || errorCode['default']
         if (res.data == "404 page not found") {
             reject('404 page not found')

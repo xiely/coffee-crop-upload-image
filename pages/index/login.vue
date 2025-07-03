@@ -16,7 +16,8 @@ import { getToken, setToken, removeToken } from '@/utils/auth'
 export default {
     onLoad(query) {
         this.token = decodeURIComponent(query.scene);
-        console.log(this.token, "TTTTTTTTTTTTTTTTT")
+        console.log(query, "query")
+        console.log(this.token, "token")
         // this.token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwicGxhdGZvcm0iOiJjb2ZmZWVfYWRtaW5fIiwiaWF0IjoxNzUxMzY3MzQxLCJleHAiOjE3NTEzNzA5NDF9.SrSupBWciimAL89fp1O9hHijnlxFrVYRfROYQ3Fm7NA"
     },
     data() {
@@ -56,7 +57,7 @@ export default {
                 console.log(res, "res")
                 if (res.status == 200) {
                     uni.navigateTo({
-                        url: '/pages/index/index'
+                        url: '/pages/index/index?scene=aaaa'
                     })
                 }
                 else {
@@ -72,7 +73,7 @@ export default {
         },
         navClick(url) {
             uni.navigateTo({
-                url
+                url: '/pages/index/index'
             })
         },
         scanCode() {
@@ -105,7 +106,7 @@ export default {
             try {
                 const res = await random(data);
                 this.randomId = res.data;
-                console.log(res, "RRRRRRRRR")
+                // console.log(res, "RRRRRRRRR")
                 uni.setStorageSync("random", res.data)
             } catch (err) {
                 console.error('getRandom error', err);
