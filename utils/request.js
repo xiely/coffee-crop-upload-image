@@ -58,7 +58,7 @@ const request = config => {
         } else if (code === 500) {
         //   toast(msg)
           reject('500')
-        } else if (code !== 200 && code !== "SUCCESS") {
+        } else if (code !== "SUCCESS") {
           toast(msg)
           reject(code)
         }

@@ -60,10 +60,11 @@ export default {
             flowerSet(data).then(res => {
                 console.log(data, "data")
                 console.log(res, "RRRRRRRRR")
-                this.qrValue = getApp().globalData.orderSubId
+                if (res.code == "SUCCESS") {
+                    this.showQrCode = true;
+                    this.qrValue = getApp().globalData.orderSubId
+                }
             })
-            this.qrValue = getApp().globalData.orderSubId;
-            this.showQrCode = true;
         },
     }
 }

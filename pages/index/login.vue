@@ -5,7 +5,7 @@
              <uni-easyinput v-model="code"  placeholder="例如： 9523" :styles="styles"></uni-easyinput>
         </view>
         <button v-if="code !== '' && code !== undefined" type="primary" @click="submit" class="btn">确定</button> -->
-        <button type="primary" @click="navClick('./size')">上传印花图</button>
+        <button v-if="!getFailed && !getOrderFailed" type="primary" @click="navClick('./size')">上传印花图</button>
         <!-- <button type="primary" @click="scanCode">扫码</button> -->
 	</view>
 </template>
@@ -26,6 +26,8 @@ export default {
             randomId: "",
             token: "",
             orderSubId: "",
+            getFailed: false,
+            getOrderFailed: false,
             styles: {
                 borderRadios: '20px'
             },
@@ -95,6 +97,7 @@ export default {
             });
         },
         async getRandom() {
+            this.getFailed = false;
             let data = {
                 accessId: "OPEN"
             }
@@ -104,10 +107,17 @@ export default {
                 // console.log(res, "RRRRRRRRR")
                 uni.setStorageSync("random", res.data)
             } catch (err) {
+                this.getFailed = true;
+                uni.showToast({
+                    title: '获取数据失败',
+                    icon: 'none',
+                    duration: 2000
+                });
                 console.error('getRandom error', err);
             }
         },
         async getOrderId() {
+            this.getOrderFailed = false;
             let data = {
                 snToken: this.token,
                 randomId: this.randomId
@@ -115,13 +125,18 @@ export default {
             try {
                 const res = await orderId(data);
                 this.orderSubId = res.data.orderSubId;
-
                 getApp().globalData.randomId = this.randomId || "aa";
                 getApp().globalData.token = this.token || "BB";
                 getApp().globalData.orderSubId = this.orderSubId || "CC";
                 console.log(this.orderSubId, "orderSubId")
             } catch (err) {
                 console.error('getOrderId error', err);
+                this.getOrderFailed = true;
+                uni.showToast({
+                    title: '获取订单数据失败',
+                    icon: 'none',
+                    duration: 2000
+                });
             }
         }
     },
