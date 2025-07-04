@@ -36,10 +36,14 @@ export function checkCode(data) {
     })
   }
 export function flowerSet(data) {
+    let obj = {...data};
+    delete obj.randomId
     return request({
-      url: '/gwop/order/flowerSet',
+      url: `/gwop/order/flowerSet?randomId=${data.randomId}`,
       method: 'post',
-      data: data
+      data:{
+        data: obj
+      }
     })
   }
 
